@@ -3,7 +3,7 @@ import sys
 
 def run_nmap(target):
     result = subprocess.run(
-        ['nmap', '-sS', '-sV', '-sC', target],
+        ['sudo' ,'nmap', '-sS', '-sV', '-sC', target],
         capture_output=True,
         text=True
     )
