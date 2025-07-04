@@ -1,10 +1,13 @@
 import subprocess
 import sys
 
-# Get target ONLY from command-line argument
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: python nmap.py <target>")
+        sys.exit(1)
+
 target = sys.argv[1]
 
-# Run nmap with the target
 result = subprocess.run(['nmap', '-sS', '-sV', '-sC', target], capture_output=True, text=True)
 
 print(result.stdout)
