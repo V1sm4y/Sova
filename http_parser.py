@@ -1,6 +1,7 @@
 import re
 
 def extract_http_ports(nmap_output):
+    
     http_ports = []
     pattern = re.compile(r'^(\d+)/tcp\s+open\s+(http\S*)', re.MULTILINE)
 
@@ -11,10 +12,10 @@ def extract_http_ports(nmap_output):
 
     return http_ports
 
-# Example usage:
-filename = input("Enter the filename of the Nmap output: ")
-with open(filename, 'r') as f:
-    output = f.read()
+if __name__ == "__main__":
+    filename = input("Enter the filename of the Nmap output: ")
+    with open(filename, 'r') as f:
+        output = f.read()
 
-ports = extract_http_ports(output)
-print("HTTP ports found:", ports)
+    ports = extract_http_ports(output)
+    print("HTTP ports found:", ports)
