@@ -1,9 +1,10 @@
+
 import subprocess
 import sys
 
 def run_nmap(target):
     result = subprocess.run(
-        ['sudo' ,'nmap', '-sS', '-sV', '-sC', target],
+        ['sudo', 'nmap', '-sS', '-sV', '-sC', target],
         capture_output=True,
         text=True
     )
@@ -19,6 +20,8 @@ def run_nmap(target):
         f.write(result.stdout)
 
     print(f"Output saved in {output}")
+
+    return output 
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
